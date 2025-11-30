@@ -11,5 +11,16 @@ public class MainActivity extends BridgeActivity {
 
         registerPlugin(FirebaseAuthenticationPlugin.class);
     }
-}
 
+    @Override
+    public void onBackPressed() {
+        if (getBridge() != null && getBridge().getWebView() != null) {
+            getBridge().getWebView().evaluateJavascript(
+                "if (window.history.length > 1) { window.history.back(); } else { window.CapacitorApp.exitApp(); }",
+                null
+            );
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
