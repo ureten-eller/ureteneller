@@ -2,14 +2,25 @@ package com.ureteneller.app;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
-import io.capawesome.capacitorjs.plugins.firebase.authentication.FirebaseAuthenticationPlugin;
+
+// 🔥 Appodeal'ın yeni API importları
+import com.appodeal.ads.Appodeal;
 
 public class MainActivity extends BridgeActivity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        registerPlugin(FirebaseAuthenticationPlugin.class);
+        // ⭐ Yeni Appodeal API – initialize callback YOK
+        Appodeal.initialize(
+                this,
+                "b0912cff2b315c94e3857c3514645163fe6356a2e7aa9f4c",  // App Key
+                Appodeal.BANNER // yalnız banner
+        );
+
+        // ⭐ Alt sabit banner göster
+        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
     }
 
     @Override
