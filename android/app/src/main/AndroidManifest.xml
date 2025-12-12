@@ -13,7 +13,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
 
-        <!-- ⭐️ AdMob meta-data KALDIRILDI ⭐️ -->
+        <!-- ⭐ AdMob App ID (ZORUNLU) ⭐ -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4268534048009492~1874354837"/>
 
         <activity
             android:name=".MainActivity"
